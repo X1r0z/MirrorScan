@@ -23,7 +23,7 @@ class RegisterHandler(tornado.web.RequestHandler):
                 codeQuery = leancloud.Query('mInvite')
                 codeQuery.equal_to('code', code)
                 if codeQuery.find():
-                    codeQuery.destroy()
+                    leancloud.Object.destroy_all(codeQuery.find())
                     User = leancloud.Object.extend('mUser')
                     userInfo = User()
                     userInfo.set('email', email)
