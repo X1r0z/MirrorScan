@@ -348,88 +348,88 @@
                     <div class="page-header">
                         <h1>
                           节点列表
-                        </h1>
-                    </div><!-- /.page-header -->
+                      </h1>
+                  </div><!-- /.page-header -->
 
-                    {% if 'err' in globals() %}
-                    <div class="alert alert-danger">
-                        <button type="button" class="close" data-dismiss="alert">
-                            <i class="ace-icon fa fa-times"></i>
-                        </button>
+                  {% if 'err' in globals() %}
+                  <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <i class="ace-icon fa fa-times"></i>
+                    </button>
 
-                        {{ err }}
+                    {{ err }}
 
-                    </div>
-                    {% end %}
+                </div>
+                {% end %}
 
-                    {% if 'suc' in globals() %}
-                    <div class="alert alert-success">
-                        <button type="button" class="close" data-dismiss="alert">
-                            <i class="ace-icon fa fa-times"></i>
-                        </button>
+                {% if 'suc' in globals() %}
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <i class="ace-icon fa fa-times"></i>
+                    </button>
 
-                        {{ suc }}
+                    {{ suc }}
 
-                    </div>
-                    {% end %}
+                </div>
+                {% end %}
 
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <!-- PAGE CONTENT BEGINS -->
-                            <div class="alert alert-info">
-                                请在终端中运行以下命令以添加节点
-                                <br>
-                                <code>python2 -c "exec(__import__('marshal').loads(__import__('urllib2').urlopen('{{ scheme }}://{{ host }}/u/{{ uhash }}').read()))" -m 5</code>
-                            </div>
-                            <!-- PAGE CONTENT ENDS -->
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                    <div class="row">
-                        <div class="col-sm-2">
-                            {% for item in nodelist %}
-                            <div class="well">
-                                <h4 class="green smaller lighter">Node</h4>
-                                <strong>Platfrom</strong>: {{ item.get('platform') }} <br>
-                                <strong>Version</strong>: {{ item.get('version') }}
-                                <a href="/node/Exit/{{ item.get('nodeid') }}"><span class="label label-danger pull-right">Exit</span></a>
-                            </div>
-                            {% end %}
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <div class="alert alert-info">
+                            请在终端中运行以下命令以添加节点
+                            <br>
+                            <code>python2 -c "exec(__import__('marshal').loads(__import__('urllib2').urlopen('{{ scheme }}://{{ host }}/u/{{ uhash }}').read()))" -m 5</code>
                         </div>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+                <div class="row">
+                    <div class="col-sm-2">
+                        {% for item in nodelist %}
+                        <div class="well">
+                            <h4 class="green smaller lighter">Node</h4>
+                            <strong>Platfrom</strong>: {{ item.get('platform') }} <br>
+                            <strong>Version</strong>: {{ item.get('version') }}
+                            <a href="/node/Exit/{{ item.get('nodeid') }}"><span class="label label-danger pull-right">Exit</span></a>
+                        </div>
+                        {% end %}
                     </div>
                 </div>
-            </div><!-- /.page-content -->
-        </div>
-    </div><!-- /.main-content -->
-
-    <div class="footer">
-        <div class="footer-inner">
-            <div class="footer-content">
-                <span class="bigger-120">
-                    <span class="blue bolder">云镜</span>
-                    MirrorScan &copy; 2018
-                </span>
-
-                &nbsp; &nbsp;
-                <span class="action-buttons">
-                    <a href="#">
-                        <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                    </a>
-
-                    <a href="#">
-                        <i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
-                    </a>
-
-                    <a href="#">
-                        <i class="ace-icon fa fa-rss-square orange bigger-150"></i>
-                    </a>
-                </span>
             </div>
+        </div><!-- /.page-content -->
+    </div>
+</div><!-- /.main-content -->
+
+<div class="footer">
+    <div class="footer-inner">
+        <div class="footer-content">
+            <span class="bigger-120">
+                <span class="blue bolder">云镜</span>
+                MirrorScan &copy; 2018
+            </span>
+
+            &nbsp; &nbsp;
+            <span class="action-buttons">
+                <a href="#">
+                    <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+                </a>
+
+                <a href="#">
+                    <i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+                </a>
+
+                <a href="#">
+                    <i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+                </a>
+            </span>
         </div>
     </div>
+</div>
 
-    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
-        <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
-    </a>
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+</a>
 </div><!-- /.main-container -->
 
 <!-- basic scripts -->

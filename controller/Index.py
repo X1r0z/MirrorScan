@@ -9,7 +9,7 @@ class IndexHandler(tornado.web.RequestHandler):
     @authentication
     def get(self):
         user = self.get_secure_cookie('user')
-        uhash = self.get_secure_cookie('uhash')
+        uhash = self.get_secure_cookie('hash')
         users = leancloud.Query('mUser').count()
         tasks = leancloud.Query('mTask').count()
         plugins = leancloud.Query('mPlugin').count()
@@ -20,9 +20,10 @@ class IndexHandler(tornado.web.RequestHandler):
         info = leancloud.Query('mReport').equal_to('uhash', uhash).equal_to('level', 'info').count()
         note = leancloud.Query('mReport').equal_to('uhash', uhash).equal_to('level', 'note').count()
         wait = leancloud.Query('mTask').equal_to('uhash', uhash).equal_to('status', 'wait').count()
-        running = leancloud.Query('mTask').equal_to('uhash', uhash).equal_to('status','running').count()
+        running = leancloud.Query('mTask').equal_to('uhash', uhash).equal_to('status', 'running').count()
         completed = leancloud.Query('mTask').equal_to('uhash', uhash).equal_to('status', 'completed').count()
         + leancloud.Query('mTask').equal_to('uhash', uhash).equal_to('status', 'stop').count()
+        print hole,warn,info,note
         self.render('index.tpl',
             user=user,
             users=users,

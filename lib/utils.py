@@ -18,7 +18,7 @@ def md5(string):
     return hashlib.md5(string).hexdigest()
 
 def gettime():
-	return time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+	return time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
 
 def encodestr(raw):
 	return base64.encodestring(zlib.compress(json.dumps(raw)))

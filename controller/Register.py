@@ -16,7 +16,7 @@ class RegisterHandler(tornado.web.RequestHandler):
         code = self.get_argument('code', '')
         if email and username and password and code:
             userQuery = leancloud.Query('mUser')
-            userQuery.equal_to('username',username)
+            userQuery.equal_to('username', username)
             if userQuery.find():
                 self.render('login.tpl', err='该用户名已经被注册')
             else:

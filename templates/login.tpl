@@ -78,7 +78,7 @@
                                     <div class="widget-main">
                                         <h4 class="header blue lighter bigger">
                                             <i class="ace-icon fa fa-coffee green"></i>
-                                           请输入你的信息
+                                            请输入你的信息
                                         </h4>
 
                                         <div class="space-6"></div>
@@ -266,14 +266,14 @@
 
     <!--[if IE]>
     <script src="/static/js/jquery-1.11.3.min.js"></script>
-    <![endif]-->
-    <script type="text/javascript">
-        if('ontouchstart' in document.documentElement) document.write("<script src='/static/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
-    </script>
+<![endif]-->
+<script type="text/javascript">
+    if('ontouchstart' in document.documentElement) document.write("<script src='/static/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+</script>
 
-    <script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
 
-    <!-- page specific plugin scripts -->
+<!-- page specific plugin scripts -->
 
         <!--[if lte IE 8]>
           <script src="/static/js/excanvas.min.js"></script>
@@ -294,33 +294,33 @@
 
       <script type="text/javascript">
         jQuery(function($) {
-         $(document).on('click', '.toolbar a[data-target]', function(e) {
+           $(document).on('click', '.toolbar a[data-target]', function(e) {
             e.preventDefault();
             var target = $(this).data('target');
                 $('.widget-box.visible').removeClass('visible');//hide others
                 $(target).addClass('visible');//show target
             });
-     });
+       });
 
 
 
             //you don't need this, just used for changing background
             jQuery(function($) {
-             $('#btn-login-dark').on('click', function(e) {
+               $('#btn-login-dark').on('click', function(e) {
                 $('body').attr('class', 'login-layout');
                 $('#id-text2').attr('class', 'white');
                 $('#id-company-text').attr('class', 'blue');
 
                 e.preventDefault();
             });
-             $('#btn-login-light').on('click', function(e) {
+               $('#btn-login-light').on('click', function(e) {
                 $('body').attr('class', 'login-layout light-login');
                 $('#id-text2').attr('class', 'grey');
                 $('#id-company-text').attr('class', 'blue');
 
                 e.preventDefault();
             });
-             $('#btn-login-blur').on('click', function(e) {
+               $('#btn-login-blur').on('click', function(e) {
                 $('body').attr('class', 'login-layout blur-login');
                 $('#id-text2').attr('class', 'white');
                 $('#id-company-text').attr('class', 'light-blue');
@@ -328,7 +328,7 @@
                 e.preventDefault();
             });
 
-         });
-     </script>
- </body>
- </html>
+           });
+       </script>
+   </body>
+   </html>

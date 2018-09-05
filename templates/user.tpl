@@ -388,97 +388,97 @@
                                       <input type="text" value="{{ info.get('group') }}" class="col-xs-10 col-sm-5" disabled/>
                                   </div>
                               </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right"> 邮箱 </label>
-                                    <div class="col-sm-9">
-                                        <input type="text" value="{{ info.get('email') }}" class="col-xs-10 col-sm-5" name="email" />
-                                    </div>
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right"> 邮箱 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" value="{{ info.get('email') }}" class="col-xs-10 col-sm-5" name="email" />
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right"> QQ </label>
-                                    <div class="col-sm-9">
-                                        <input type="text" value="{{ info.get('qq') }}" class="col-xs-10 col-sm-5" name="qq" />
-                                    </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right"> QQ </label>
+                                <div class="col-sm-9">
+                                    <input type="text" value="{{ info.get('qq') }}" class="col-xs-10 col-sm-5" name="qq" />
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right"> 博客 </label>
-                                    <div class="col-sm-9">
-                                        <input type="text" value="{{ info.get('website') }}" class="col-xs-10 col-sm-5" name="website" />
-                                    </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right"> 博客 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" value="{{ info.get('website') }}" class="col-xs-10 col-sm-5" name="website" />
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right"> 信息 </label>
-                                    <div class="col-sm-9">
-                                        <input type="text" value="{{ info.get('info') }}" class="col-xs-10 col-sm-5" name="info" />
-                                    </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right"> 信息 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" value="{{ info.get('info') }}" class="col-xs-10 col-sm-5" name="info" />
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right"> 密码 </label>
-                                    <div class="col-sm-9">
-                                        <input type="password" value="" class="col-xs-10 col-sm-5" name="password" />
-                                    </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right"> 密码 </label>
+                                <div class="col-sm-9">
+                                    <input type="password" value="" class="col-xs-10 col-sm-5" name="password" />
                                 </div>
+                            </div>
 
-                                <div class="clearfix form-actions">
-                                    <div class="col-md-offset-3 col-md-9">
-                                        <button class="btn btn-info" type="submit" form="form">
-                                            <i class="ace-icon fa fa-check bigger-110"></i>
-                                            提交
-                                        </button>
-                                        &nbsp; &nbsp; &nbsp;
-                                        <button class="btn" type="reset">
-                                            <i class="ace-icon fa fa-undo bigger-110"></i>
-                                            清空
-                                        </button>
-                                    </div>
+                            <div class="clearfix form-actions">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button class="btn btn-info" type="submit" form="form">
+                                        <i class="ace-icon fa fa-check bigger-110"></i>
+                                        提交
+                                    </button>
+                                    &nbsp; &nbsp; &nbsp;
+                                    <button class="btn" type="reset">
+                                        <i class="ace-icon fa fa-undo bigger-110"></i>
+                                        清空
+                                    </button>
                                 </div>
-                            </form>
-                        </div>
-                    </div><!-- /.row -->
-                </div><!-- /.page-content -->
-            </div>
-        </div><!-- /.main-content -->
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
 
-        <div class="footer">
-            <div class="footer-inner">
-                <div class="footer-content">
-                    <span class="bigger-120">
-                        <span class="blue bolder">云镜</span>
-                        MirrorScan &copy; 2018
-                    </span>
+    <div class="footer">
+        <div class="footer-inner">
+            <div class="footer-content">
+                <span class="bigger-120">
+                    <span class="blue bolder">云镜</span>
+                    MirrorScan &copy; 2018
+                </span>
 
-                    &nbsp; &nbsp;
-                    <span class="action-buttons">
-                        <a href="#">
-                            <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                        </a>
+                &nbsp; &nbsp;
+                <span class="action-buttons">
+                    <a href="#">
+                        <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+                    </a>
 
-                        <a href="#">
-                            <i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
-                        </a>
+                    <a href="#">
+                        <i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+                    </a>
 
-                        <a href="#">
-                            <i class="ace-icon fa fa-rss-square orange bigger-150"></i>
-                        </a>
-                    </span>
-                </div>
+                    <a href="#">
+                        <i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+                    </a>
+                </span>
             </div>
         </div>
+    </div>
 
-        <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
-            <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
-        </a>
-    </div><!-- /.main-container -->
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+    </a>
+</div><!-- /.main-container -->
 
-    <!-- basic scripts -->
+<!-- basic scripts -->
 
-    <!--[if !IE]> -->
-    <script src="/static/js/jquery-2.1.4.min.js"></script>
-    <!-- <![endif]-->
+<!--[if !IE]> -->
+<script src="/static/js/jquery-2.1.4.min.js"></script>
+<!-- <![endif]-->
 
     <!--[if IE]>
     <script src="/static/js/jquery-1.11.3.min.js"></script>

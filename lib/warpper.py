@@ -3,19 +3,19 @@
 import leancloud
 
 def authentication(controller):
-    def warpper(self, *args, **kwargs):
-        user = self.get_secure_cookie('user')
-        uhash = self.get_secure_cookie('hash')
+    def warpper(cls, *args, **kwargs):
+        user = cls.get_secure_cookie('user')
+        uhash = cls.get_secure_cookie('hash')
         if user and uhash:
-            return controller(self, *args, **kwargs)
+            return controller(cls, *args, **kwargs)
         else:
-            self.redirect('/login')
+            cls.redirect('/login')
     return warpper
 
 def protect(controller):
-    def warpper(self, *args, **kwargs):
-        if self.request.headers.get('User-Agent') == 'Python-urllib/2.7':
-            return controller(self, *args, **kwargs)
+    def warpper(cls, *args, **kwargs):
+        if cls.request.headers.get('User-Agent') == 'Python-urllib/2.7':
+            return controller(cls, *args, **kwargs)
         else:
             userQuery = leancloud.Query('mUser')
             userQuery.equal_to('uhash', args[0])
@@ -24,7 +24,7 @@ def protect(controller):
                 userInfo.set('block', True)
                 userInfo.set('group', '黑名单用户')
                 userInfo.save()
-                self.write('您已经被封禁')
+                cls.write('您已经被封禁')
             else:
-                self.write('拒绝访问')
+                cls.write('拒绝访问')
     return warpper

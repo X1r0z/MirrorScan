@@ -22,7 +22,7 @@ class UserHandler(tornado.web.RequestHandler):
         email = self.get_argument('email', '')
         website = self.get_argument('website', '')
         info = self.get_argument('info', '')
-        qq = self.get_argument('qq', )
+        qq = self.get_argument('qq', '')
         password = self.get_argument('password', '')
         userQuery = leancloud.Query('mUser')
         userQuery.equal_to('uhash', uhash)

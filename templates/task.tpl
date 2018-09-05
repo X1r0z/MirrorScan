@@ -429,7 +429,7 @@
                                                             <i class="ace-icon fa fa-check bigger-120"></i>
                                                         </a>
 
-                                                       <a href="/task/Report/{{ item.get('tid') }}" class="btn btn-xs btn-info">
+                                                        <a href="/task/Report/{{ item.get('tid') }}" class="btn btn-xs btn-info">
                                                             <i class="ace-icon fa fa-pencil bigger-120"></i>
                                                         </a>
 
