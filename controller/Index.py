@@ -23,7 +23,6 @@ class IndexHandler(tornado.web.RequestHandler):
         running = leancloud.Query('mTask').equal_to('uhash', uhash).equal_to('status', 'running').count()
         completed = leancloud.Query('mTask').equal_to('uhash', uhash).equal_to('status', 'completed').count()
         + leancloud.Query('mTask').equal_to('uhash', uhash).equal_to('status', 'stop').count()
-        print hole,warn,info,note
         self.render('index.tpl',
             user=user,
             users=users,
