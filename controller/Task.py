@@ -21,6 +21,7 @@ class TaskHandler(tornado.web.RequestHandler):
                 reportQuery = leancloud.Query('mReport')
                 reportQuery.equal_to('uhash', uhash)
                 reportQuery.equal_to('tid', tid)
+                reportQuery.limit(1000)
                 reportInfo = reportQuery.find()
                 if reportInfo:
                     report = reportformat(reportInfo)
@@ -54,6 +55,7 @@ class TaskHandler(tornado.web.RequestHandler):
                 reportQuery = leancloud.Query('mReport')
                 reportQuery.equal_to('uhash', uhash)
                 reportQuery.equal_to('tid', tid)
+                reportQuery.limit(1000)
                 leancloud.Object.destroy_all(taskQuery.find())
                 leancloud.Object.destroy_all(reportQuery.find())
                 taskQuery = leancloud.Query('mTask')

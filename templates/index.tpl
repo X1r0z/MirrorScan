@@ -364,7 +364,7 @@
                             欢迎来到
                             <strong class="green">
                                 云镜 (MirrorScan)
-                                <small>v2.0</small>
+                                <small>v2.1</small>
                             </strong>
                             !
 
