@@ -2,11 +2,12 @@ import socket
 import time
 
 def assign(service, arg):
-    if service == 'www':
+    if service == 'domain':
         return True, arg
 
 def audit(arg):
     if _G['subdomain']:
+        socket.setdefaulttimeout(5)
         domain = util.get_domain_root(arg)
         tlds = util.list_from_file("database/sub_domain.txt")
         unable_pro = "stackoverflowsb"
@@ -17,9 +18,12 @@ def audit(arg):
             for pro in tlds:
                 hostname = pro + "." + domain
                 try:
-                    l = socket.gethostbyname_ex(hostname)
-                    security_info('subdomain discover: %s %s' %(hostname,str(l[2])))
-                    time.sleep(0.01)
+                    ip = socket.gethostbyname(hostname)
+                    security_info('subdomain discover: %s %s' %(hostname, ip))
+                    if hostname != arg and pro != 'www':
+                        task_push('ip', ip, target=hostname)
+                        socket.socket().connect((ip,80))
+                        task_push('www', 'http://%s/' % hostname, target=hostname)
                 except Exception:
                     pass
         else:

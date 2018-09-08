@@ -449,7 +449,7 @@ class Task(object):
                 thread_local.__pid = _pid
                 self._sniff_plugins[_pid].audit(url, head, data)
             except Exception, e:
-                pass
+                print e
         thread_local.__pid = __opid
 
     def _debug(self, fmt, *args):
@@ -544,11 +544,12 @@ def add_task(glock, gdebug, uhash, rpc_server, tid, target, policy):
             else:
                 task.task_push('www', 'http://%s/' % policy['entry'])
             task.task_push('ip', socket.gethostbyname(target))
+            task.task_push('domain', target)
             task.run()
         except (KeyboardInterrupt, SystemExit):
             pass
         except Exception as e:
-            pass
+            print e
     finally:
         rpc_service.set_task_status(tid, scan_success)
     return

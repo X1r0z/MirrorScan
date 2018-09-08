@@ -584,10 +584,9 @@ def audit(arg):
     okResultList = []
     for port, serverInfo, serverHeader in scanResult:
         okResultList.append("%d => [%s]%s" % (port, serverInfo, "; Ver => %s" % serverHeader if serverHeader else ""))
-        if serverInfo == "ssl":
-            task_push("www", "https://%s/" % host)
-        elif serverInfo == "www":
-            task_push("www", "http://%s:%d/" % (host, port))
+        if serverInfo == "www":
+            if port != 80:
+                task_push("www", "http://%s:%d/" % (host, port))
         else:
             task_push(serverInfo, (host, port))
 

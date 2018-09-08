@@ -7,7 +7,7 @@ import os
 
 SCHEME = 'http'
 
-HOST = 'mirrorscan.leanapp.cn'
+HOST = '127.0.0.1:8000'
 
 INIT_FILE = 'init.py'
 
