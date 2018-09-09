@@ -1,7 +1,5 @@
 # coding:utf-8
 import sys
-
-sys.dont_write_bytecode = True
 import imp
 import os
 import marshal
@@ -26,6 +24,9 @@ import ssl
 import uuid
 import imp
 
+sys.dont_write_bytecode = True
+
+# 模块加载函数
 def load_module(chunk, modulename):
     m = imp.new_module(modulename)
     exec chunk in m.__dict__
@@ -34,12 +35,11 @@ def load_module(chunk, modulename):
 
 out_print_flag = False
 max_task = 5
-thread_lock = multiprocessing.RLock()
 rpc_service = None
 thread_local = threading.local()
 # 扫描任务的状态信息
 _, __, ___, scan_start, ____, scan_success, scan_kill, _____ = range(8)
-# 提交扫描报告的危险等级
+# 扫描报告的危险等级
 report_note, report_info, report_warning, report_hole = range(4)
 
 def init_module():
@@ -52,30 +52,27 @@ def init_module():
 # 初始化加载模块
 init_module()
 
-# 下面四个模块由上面加载
+# 导入基本模块
 import util
 import DNS
 import miniCurl
 import hackhttp
 import threadpool
 
-
+# 输出调试信息
 def print_info(fmt, *args):
     global out_print_flag
-    global thread_lock
     if sys.flags.debug or not out_print_flag:
-        thread_lock.acquire()
         print fmt % args
-        thread_lock.release()
-
 
 if __name__ == '__main__' and sys.platform == 'win32':
     code = marshal.dumps(sys._getframe().f_code)
 
 
-# 任务管理器，所有的任务都是在这里被统一管理
+# 任务管理器
 class Task_Manager(object):
     @staticmethod
+    # 创建进程
     def PProcess(func, args):
         if sys.platform != 'win32':
             return multiprocessing.Process(target=func, args=args)
@@ -89,6 +86,7 @@ class Task_Manager(object):
         self._taskqueue = Queue.Queue()
         self._maxtasks = maxtasks
 
+    # 添加任务
     def push(self, pid, target, args=(), callback=None, timeout=None):
         if pid in self._pool:
             return False
@@ -103,6 +101,7 @@ class Task_Manager(object):
     def isempty(self):
         return self._taskqueue.qsize() + len(self._pool) == 0
 
+    # 停止任务
     def kill(self, pid):
         try:
             process, callback, timeout = self._pool[pid]
@@ -120,6 +119,7 @@ class Task_Manager(object):
             pass
         return
 
+    # 初始化队列中的任务
     def poll(self):
         for pid in self._pool.keys():
             process, callback, timeout = self._pool[pid]
@@ -141,9 +141,9 @@ class Task_Manager(object):
                 pass
                 if flag:
                     self._taskqueue.put((pid, target, args, callback, timeout))
-
         return
 
+    # 终止任务
     def terminate(self):
         while not self._taskqueue.empty():
             pid, target, args, callback, timeout = self._taskqueue.get(False)
@@ -194,6 +194,7 @@ class Service(object):
             name = '%s.%s' % (self.__serviceName, name)
         return Service(self.__uhash, self.__serviceURL, name)
 
+    # 远程过程调用
     def __call__(self, *args):
         uuid_str = str(uuid.uuid1())
         req_body = json.dumps({'intention': self.__serviceName, 'values': args, 'uhash': self.__uhash, 'uuid': uuid_str})
@@ -247,7 +248,7 @@ class Service(object):
         return
 
 
-# 任务实体，插件环境都在这里设置
+# 任务类
 class Task(object):
     @staticmethod
     def _connect(*args, **kwargs):
@@ -287,6 +288,7 @@ class Task(object):
            raise IOError('DNS:lookup')
        return apply(real, (dns,))
 
+    # 初始化任务信息
     def __init__(self, tid, target, policy):
         thread_local.__target = target
         thread_local.__pid = 0
@@ -351,12 +353,13 @@ class Task(object):
         self._db_task_queue = Queue.PriorityQueue()
         return
 
+    # 加载插件
     def _load_module(self, chunk, name='<memory>'):
         m = imp.new_module(str(name))
         exec chunk in m.__dict__
         return m
 
-    # 打包提交扫描报告
+    # 提交扫描报告
     def _problem(self, level, body, uuid):
         target = thread_local.__target
         pid = str(thread_local.__pid)
@@ -392,7 +395,7 @@ class Task(object):
     def _security_hole(self, body, uuid=None):
         return self._problem(report_hole, body, uuid)
 
-    # 添加扫描动作(ex:使用所有www插件扫描)
+    # 添加扫描动作 基本服务插件的扫描
     def task_push(self, service, args, uuid=None, target=None, pr=-1):
         if target is None:
             target = thread_local.__target
@@ -425,8 +428,7 @@ class Task(object):
                 pass
             if not isinstance(verify_result, tuple):
                 continue
-            # 解包验证结果
-            # 是否匹配，返回的args(传参给audit的)，uuid少见
+            # 消息验证
             result, result_args, uuid = verify_result if len(verify_result) == 3 else verify_result + (None,)
             args = result_args if isinstance(result_args, list) else [result_args]
             self._db_lock.acquire()
@@ -449,12 +451,14 @@ class Task(object):
                 thread_local.__pid = _pid
                 self._sniff_plugins[_pid].audit(url, head, data)
             except Exception, e:
-                print e
+                pass
         thread_local.__pid = __opid
 
+    # 输出调试信息
     def _debug(self, fmt, *args):
         print_info(fmt, *args)
 
+    # 插件补丁, 将输出报告 添加任务等函数和全局变量指向插件模块的命名空间中
     def _patch_module(self, m):
         m.util = util
         m.threadpool = threadpool
@@ -467,6 +471,7 @@ class Task(object):
         m.security_warning = self._security_warning
         m.security_hole = self._security_hole
 
+    # 工作者, 实例化基本模块指向插件模块的命名空间中并调用 audit
     def worker(self, args):
         pid, param, target, hash = args
         thread_local.__target = target
@@ -482,6 +487,7 @@ class Task(object):
             pass
         return
 
+    # 启动任务
     def run(self):
         threadpool_ = threadpool.ThreadPool(30)
         num = 0
@@ -516,7 +522,7 @@ class Task(object):
         threadpool_.wait()
 
 
-# 检查任务里的字符串
+# 检查字符串
 def check_target(varObj):
     for char in varObj:
         char = ord(char)
@@ -524,13 +530,10 @@ def check_target(varObj):
             return False
     return True
 
-
 # 添加任务
-def add_task(glock, gdebug, uhash, rpc_server, tid, target, policy):
+def add_task(gdebug, uhash, rpc_server, tid, target, policy):
     global out_print_flag
     global rpc_service
-    global thread_lock
-    thread_lock = glock
     out_print_flag = True
     rpc_service = Service(uhash, rpc_server)
     try:
@@ -544,31 +547,28 @@ def add_task(glock, gdebug, uhash, rpc_server, tid, target, policy):
             else:
                 task.task_push('www', 'http://%s/' % policy['entry'])
             task.task_push('ip', socket.gethostbyname(target))
-            task.task_push('domain', target)
+            task.task_push('dns', target)
             task.run()
         except (KeyboardInterrupt, SystemExit):
             pass
         except Exception as e:
-            print e
+            pass
     finally:
         rpc_service.set_task_status(tid, scan_success)
     return
 
-
-# 任务结束时调用的回调函数
+# 任务结束调用的回调函数
 def task_callback(tid, exitcode):
     status = scan_success
     if exitcode != signal.SIG_DFL:
         status = scan_kill
     rpc_service.set_task_status(tid, status)
 
-
 event = threading.Event()
 
-
+# 停止信号的回调函数
 def stop_signal(signum, frame):
     event.set()
-
 
 def sleep(s):
     for _ in range(0, s * 1000, 100):
@@ -579,7 +579,7 @@ def sleep(s):
         except:
             pass
 
-
+# 主函数
 def main():
     global max_task
     global rpc_service
@@ -600,11 +600,11 @@ def main():
     rpc_url = '%s://%s/service' % (_S, _B)
     rpc_service = Service(_U, rpc_url)
     core_version = 1.01
-    # 升级标识，升级核心用的
+    # 节点核心升级的标识
     update_flag = False
-    # 本地插件仓库，减少服务器支出，每次获取到的插件都会存到这里
+    # 本地插件仓库，将从服务器上获取的插件存储在这里, 减少与服务器的请求次数
     plugin_package = {}
-    # 任务管理器，管理在云端获取在本地执行的任务
+    # 任务管理器
     task_mgr = Task_Manager(max_task)
     # 空闲任务数量
     idel_thread = task_mgr.idel()
@@ -618,7 +618,7 @@ def main():
             try:
                 while True:
                     if node_id is None:
-                        # 插件登陆服务器，在维护的时候不返回节点的id就会进到下面的登陆错误的逻辑
+                        # 节点登录, 在维护或被封禁的时候会登录失败
                         node_id = rpc_service.login(platform.system(), str(core_version))
                         print_info(u'[!!!] 节点版本 ' + str(core_version))
                         if not node_id:
@@ -638,7 +638,7 @@ def main():
                     task_list = rpc_service.get_task_list(node_id,idel_thread,task_mgr._pool.keys())
                     if not task_list:
                         continue
-                    # 获取节点和核心版本判断是否升级，如果升级会直接关闭
+                    # 判断节点核心是否需要升级
                     node_ver = task_list.get('nodever')
                     if node_ver and float(node_ver) > core_version:
                         idel_thread = -1
@@ -659,7 +659,7 @@ def main():
                         for hash in policy['plugins']:
                             if hash not in plugin_package:
                                 task_plugin_hash_list.append(hash)
-                        # 如果任务获取到hash列表就拿着hash表从服务器获取插件
+                        # 将任务中的哈希列表发送给服务器获取插件
                         if task_plugin_hash_list:
                             print_info(u'[***] 获取 %d 个新的插件', len(task_plugin_hash_list))
                             # 获取插件列表
@@ -668,7 +668,7 @@ def main():
                                 plugin_tuple = plugin_list[hash]
                                 plugin_package[hash] = (
                                     plugin_tuple[0], zlib.decompress(binascii.a2b_hex(plugin_tuple[1])))
-                        # 在本地的插件仓库里面取出来当前任务需要的插件打包
+                        # 从本地插件仓库中获取需要的插件
                         plugin_pack = {}
                         for hash in policy['plugins']:
                             if hash in plugin_package:
@@ -677,7 +677,7 @@ def main():
 
                         policy['plugins'] = plugin_pack
                         # 设置禁扫列表
-                        no_scans = ['wicwuzhen.cn', 'zjol.com.cn']
+                        no_scans = ['gov.cn']
                         no_scan_flag = False
                         for no_scan in no_scans:
                             if no_scan in target:
@@ -686,9 +686,9 @@ def main():
                         # 判断是否为禁扫名单
                         if not no_scan_flag:
                             # 添加任务到任务管理器
-                            task_mgr.push(tid, add_task, (thread_lock, sys.flags.debug, _U, rpc_url, tid, target, policy), task_callback, timeout)
+                            task_mgr.push(tid, add_task, (sys.flags.debug, _U, rpc_url, tid, target, policy), task_callback, timeout)
                         else:
-                            # 如果是禁扫名单直接设置任务完成
+                            # 跳过任务
                             rpc_service.set_task_status(tid, scan_success)
                     # 停止任务
                     num = 0
@@ -712,7 +712,6 @@ def main():
 
     task_mgr.terminate()
     return
-
 
 if __name__ == '__fork__':
     apply(globals()[__func__], __args__)

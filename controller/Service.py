@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 
 from lib.utils import *
+from lib.common import *
 
 import tornado.web
 import leancloud
@@ -42,14 +43,10 @@ class ServiceHandler(tornado.web.RequestHandler):
                 elif act == 'get_task_list':
                     taskList = list()
                     stopList = list()
-                    queueTaskQuery = leancloud.Query('mTask')
-                    queueTaskQuery.equal_to('uhash', uhash)
-                    queueTaskQuery.equal_to('status', 'wait')
-                    queueTaskList = queueTaskQuery.find()
-                    stopTaskQuery = leancloud.Query('mTask')
-                    stopTaskQuery.equal_to('uhash', uhash)
-                    stopTaskQuery.equal_to('status', 'cancel')
-                    stopTaskList = stopTaskQuery.find()
+                    perPage, _ = getpage(leancloud.Query('mTask').equal_to('uhash', uhash).equal_to('status', 'wait'))
+                    queueTaskList = getdata('mTask', perPage, uhash=uhash, status='wait')
+                    perPage, _ = getpage(leancloud.Query('mTask').equal_to('uhash', uhash).equal_to('status', 'cancel'))
+                    stopTaskList = getdata('mTask', perPage, uhash=uhash, status='cancel')
                     for item in queueTaskList:
                         policy = {
                         'entry': item.get('target'),
@@ -84,9 +81,8 @@ class ServiceHandler(tornado.web.RequestHandler):
                 elif act == 'get_plugin_list':
                     hashList = values[0]
                     pluginList = dict()
-                    taskPluginQuery = leancloud.Query('mPlugin')
-                    taskPluginQuery.contained_in('phash', hashList)
-                    taskPluginList = taskPluginQuery.find()
+                    perPage, _ = getpage(leancloud.Query('mPlugin').contained_in('phash', hashList))
+                    taskPluginList = getdata('mPlugin', perPage, phash=hashList)
                     for item in taskPluginList:
                         pluginList[item.get('phash')] = (item.get('phash'), encodeplugin(item.get('body')))
                     resp = {

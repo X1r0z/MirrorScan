@@ -7,13 +7,16 @@ import os
 
 SCHEME = 'http'
 
-HOST = 'mirrorscan.leanapp.cn'
+if os.environ.get('LEANCLOUD_APP_ENV'):
+    HOST = 'mirrorscan.leanapp.cn'
+else:
+    HOST = 'mirrorscan:8000'
 
 INIT_FILE = 'init.py'
 
 NODE_FILE = 'node.py'
 
-DEBUG = False
+DEBUG = True
 
 BASE_DIR = os.path.dirname(__file__)
 

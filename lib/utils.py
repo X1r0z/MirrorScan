@@ -1,3 +1,5 @@
+# -*- coding:utf-8 -*-
+
 import binascii
 import hashlib
 import random
@@ -39,21 +41,3 @@ def gethost(url):
     if url.endswith('/'):
         url = url.strip('/')
     return url
-
-def reportformat(result):
-    repos = dict()
-    for item in result:
-        if item.get('target') in repos:
-            if item.get('level') in repos[item.get('target')]:
-                if item.get('name') in repos[item.get('target')][item.get('level')]:
-                    repos[item.get('target')][item.get('level')][item.get('name')].append(item.get('body'))
-                else:
-                    repos[item.get('target')][item.get('level')][item.get('name')] = [item.get('body')]
-            else:
-                repos[item.get('target')][item.get('level')] = dict()
-                repos[item.get('target')][item.get('level')][item.get('name')] = [item.get('body')]
-        else:
-            repos[item.get('target')] = dict()
-            repos[item.get('target')][item.get('level')] = dict()
-            repos[item.get('target')][item.get('level')][item.get('name')] = [item.get('body')]
-    return repos

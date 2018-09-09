@@ -1,3 +1,5 @@
+# -*- coding:utf-8 -*-
+
 from lib.utils import *
 
 import leancloud
@@ -38,9 +40,9 @@ for rt, dirs, files in os.walk(PLUGIN_DIR):
             info.set('body', body)
             info.set('author', AUTHOR)
             info.set('service', service)
-            info.set('uhash', uhash)
+            info.set('uhash', UHASH)
             info.set('phash', gethash())
             info.set('private', PRIVATE)
-            info.set('count', count)
+            info.set('count', COUNT)
             info.save()
             print 'Load Plugin', name, 'successfully'

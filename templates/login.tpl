@@ -8,31 +8,11 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <link rel="icon" href="/static/favicon.ico">
-    <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/static/font-awesome/4.5.0/css/font-awesome.min.css" />
-
-    <!-- text fonts -->
     <link rel="stylesheet" href="/static/css/fonts.googleapis.com.css" />
-
-    <!-- ace styles -->
     <link rel="stylesheet" href="/static/css/ace.min.css" />
-
-        <!--[if lte IE 9]>
-            <link rel="stylesheet" href="/static/css/ace-part2.min.css" />
-        <![endif]-->
-        <link rel="stylesheet" href="/static/css/ace-rtl.min.css" />
-
-        <!--[if lte IE 9]>
-          <link rel="stylesheet" href="/static/css/ace-ie.min.css" />
-      <![endif]-->
-
-      <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
-
-        <!--[if lte IE 8]>
-        <script src="/static/js/html5shiv.min.js"></script>
-        <script src="/static/js/respond.min.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" href="/static/css/ace-rtl.min.css" />
 </head>
 
 <body class="login-layout light-login">
@@ -117,7 +97,7 @@
                                             </fieldset>
                                         </form>
 
-                                    </div><!-- /.widget-main -->
+                                    </div>
 
                                     <div class="toolbar clearfix">
                                         <div>
@@ -134,8 +114,8 @@
                                             </a>
                                         </div>
                                     </div>
-                                </div><!-- /.widget-body -->
-                            </div><!-- /.login-box -->
+                                </div>
+                            </div>
 
                             <div id="forgot-box" class="forgot-box widget-box no-border">
                                 <div class="widget-body">
@@ -149,7 +129,7 @@
                                         <p>
                                             带上你的用户哈希 联系邮箱 admin@exp10it.cn
                                         </p>
-                                    </div><!-- /.widget-main -->
+                                    </div>
 
                                     <div class="toolbar center">
                                         <a href="#" data-target="#login-box" class="back-to-login-link">
@@ -157,8 +137,8 @@
                                             <i class="ace-icon fa fa-arrow-right"></i>
                                         </a>
                                     </div>
-                                </div><!-- /.widget-body -->
-                            </div><!-- /.forgot-box -->
+                                </div>
+                            </div>
 
                             <div id="signup-box" class="signup-box widget-box no-border">
                                 <div class="widget-body">
@@ -233,9 +213,9 @@
                                             返回
                                         </a>
                                     </div>
-                                </div><!-- /.widget-body -->
-                            </div><!-- /.signup-box -->
-                        </div><!-- /.position-relative -->
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="navbar-fixed-top align-right">
                             <br />
@@ -252,83 +232,55 @@
                             &nbsp; &nbsp; &nbsp;
                         </div>
                     </div>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.main-content -->
-    </div><!-- /.main-container -->
+                </div>
+            </div>>
+        </div>
+    </div>
 
-    <!-- basic scripts -->
-
-    <!--[if !IE]> -->
     <script src="/static/js/jquery-2.1.4.min.js"></script>
-
-    <!-- <![endif]-->
-
-    <!--[if IE]>
-    <script src="/static/js/jquery-1.11.3.min.js"></script>
-<![endif]-->
-<script type="text/javascript">
+    <script type="text/javascript">
     if('ontouchstart' in document.documentElement) document.write("<script src='/static/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
-</script>
-
-<script src="/static/js/bootstrap.min.js"></script>
-
-<!-- page specific plugin scripts -->
-
-        <!--[if lte IE 8]>
-          <script src="/static/js/excanvas.min.js"></script>
-      <![endif]-->
-      <script src="/static/js/jquery-ui.custom.min.js"></script>
-      <script src="/static/js/jquery.ui.touch-punch.min.js"></script>
-      <script src="/static/js/jquery.easypiechart.min.js"></script>
-      <script src="/static/js/jquery.sparkline.index.min.js"></script>
-      <script src="/static/js/jquery.flot.min.js"></script>
-      <script src="/static/js/jquery.flot.pie.min.js"></script>
-      <script src="/static/js/jquery.flot.resize.min.js"></script>
-
-      <!-- ace scripts -->
-      <script src="/static/js/ace-elements.min.js"></script>
-      <script src="/static/js/ace.min.js"></script>
-
-      <!-- inline scripts related to this page -->
-
-      <script type="text/javascript">
+    </script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/jquery-ui.custom.min.js"></script>
+    <script src="/static/js/jquery.ui.touch-punch.min.js"></script>
+    <script src="/static/js/jquery.easypiechart.min.js"></script>
+    <script src="/static/js/jquery.sparkline.index.min.js"></script>
+    <script src="/static/js/jquery.flot.min.js"></script>
+    <script src="/static/js/jquery.flot.pie.min.js"></script>
+    <script src="/static/js/jquery.flot.resize.min.js"></script>
+    <script src="/static/js/ace-elements.min.js"></script>
+    <script src="/static/js/ace.min.js"></script>
+    <script type="text/javascript">
         jQuery(function($) {
            $(document).on('click', '.toolbar a[data-target]', function(e) {
             e.preventDefault();
             var target = $(this).data('target');
-                $('.widget-box.visible').removeClass('visible');//hide others
-                $(target).addClass('visible');//show target
+                $('.widget-box.visible').removeClass('visible');
+                $(target).addClass('visible');
             });
-       });
+        });
 
-
-
-            //you don't need this, just used for changing background
-            jQuery(function($) {
-               $('#btn-login-dark').on('click', function(e) {
+        jQuery(function($) {
+                $('#btn-login-dark').on('click', function(e) {
                 $('body').attr('class', 'login-layout');
                 $('#id-text2').attr('class', 'white');
                 $('#id-company-text').attr('class', 'blue');
-
                 e.preventDefault();
             });
-               $('#btn-login-light').on('click', function(e) {
+                $('#btn-login-light').on('click', function(e) {
                 $('body').attr('class', 'login-layout light-login');
                 $('#id-text2').attr('class', 'grey');
                 $('#id-company-text').attr('class', 'blue');
-
                 e.preventDefault();
             });
-               $('#btn-login-blur').on('click', function(e) {
+                $('#btn-login-blur').on('click', function(e) {
                 $('body').attr('class', 'login-layout blur-login');
                 $('#id-text2').attr('class', 'white');
                 $('#id-company-text').attr('class', 'light-blue');
-
                 e.preventDefault();
             });
-
-           });
-       </script>
-   </body>
-   </html>
+        });
+    </script>
+</body>
+</html>

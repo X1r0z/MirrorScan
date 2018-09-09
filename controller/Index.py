@@ -10,10 +10,6 @@ class IndexHandler(tornado.web.RequestHandler):
     def get(self):
         user = self.get_secure_cookie('user')
         uhash = self.get_secure_cookie('hash')
-        users = leancloud.Query('mUser').count()
-        tasks = leancloud.Query('mTask').count()
-        plugins = leancloud.Query('mPlugin').count()
-        reports = leancloud.Query('mReport').count()
         top = leancloud.Query('mPlugin').equal_to('private', False).add_descending('count').limit(5).find()
         hole = leancloud.Query('mReport').equal_to('uhash', uhash).equal_to('level', 'hole').count()
         warn = leancloud.Query('mReport').equal_to('uhash', uhash).equal_to('level', 'warn').count()
@@ -25,10 +21,6 @@ class IndexHandler(tornado.web.RequestHandler):
         + leancloud.Query('mTask').equal_to('uhash', uhash).equal_to('status', 'stop').count()
         self.render('index.tpl',
             user=user,
-            users=users,
-            plugins=plugins,
-            tasks=tasks,
-            reports=reports,
             running=running,
             wait=wait,
             completed=completed,
