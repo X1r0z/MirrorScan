@@ -283,7 +283,8 @@
                         <div class="well">
                             <h4 class="green smaller lighter">Node</h4>
                             <strong>Platfrom</strong>: {{ item.get('platform') }} <br>
-                            <strong>Version</strong>: {{ item.get('version') }}
+                            <strong>Version</strong>: {{ item.get('version') }} <br>
+                            <strong>IP</strong>: {{ item.get('ip') }}
                             <a href="/node/Exit/{{ item.get('nodeid') }}"><span class="label label-danger pull-right">Exit</span></a>
                         </div>
                         {% end %}

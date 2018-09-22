@@ -2,63 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d150740-6051-42a7-9faa-0b38dd26a9d3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/thirdparty/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Index.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Plugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Plugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Service.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/Task.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Task.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/load_plugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/load_plugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/www/IP 信息.py" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/www/IP 信息.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/www/子域名枚举.py" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/www/子域名枚举.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/bootstrap-colorpicker.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/bootstrap-datepicker.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/bootstrap-datetimepicker.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/bootstrap-timepicker.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/bootstrap-wysiwyg.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/buttons.colVis.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/buttons.flash.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/buttons.html5.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/buttons.print.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/dataTables.buttons.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/dataTables.select.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/daterangepicker.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/dropzone.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/excanvas.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/fullcalendar.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/grid.locale-en.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/html5shiv.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery-additional-methods.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery-typeahead.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.bootstrap-duallistbox.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.colorbox.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.dataTables.bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.dataTables.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.gritter.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.hotkeys.index.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.inputlimiter.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.jqGrid.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.knob.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.maskedinput.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.nestable.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.raty.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.validate.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/spinbox.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bin/init.py.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bin/init.py.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bin/node.py" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bin/node.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bin/node.py.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bin/node.py.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/login.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/node.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/node.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/plugin.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/plugin.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pluginedit.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pluginedit.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/task.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/task.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/taskadd.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/taskadd.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/taskinfo.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/taskinfo.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,14 +34,14 @@
     <session id="878959679">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.36" value="1" />
-          <entry key="project.open.time.38" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.open.time.38" value="2" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -99,18 +49,18 @@
           <entry key="CHANGELOG" value="4" />
           <entry key="TODO" value="2" />
           <entry key="js" value="1" />
-          <entry key="md" value="5" />
-          <entry key="py" value="73" />
+          <entry key="md" value="6" />
+          <entry key="py" value="76" />
           <entry key="python-version" value="1" />
-          <entry key="tpl" value="2" />
+          <entry key="tpl" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JavaScript" value="1" />
-          <entry key="Markdown" value="5" />
-          <entry key="PLAIN_TEXT" value="9" />
-          <entry key="Python" value="73" />
+          <entry key="Markdown" value="6" />
+          <entry key="PLAIN_TEXT" value="10" />
+          <entry key="Python" value="76" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -118,31 +68,59 @@
           <entry key="CHANGELOG" value="214" />
           <entry key="Python Console" value="399" />
           <entry key="TODO" value="103" />
-          <entry key="md" value="971" />
-          <entry key="py" value="4673" />
+          <entry key="md" value="1055" />
+          <entry key="py" value="4898" />
           <entry key="tpl" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="971" />
+          <entry key="Markdown" value="1055" />
           <entry key="PLAIN_TEXT" value="318" />
-          <entry key="Python" value="5072" />
+          <entry key="Python" value="5297" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.vcs.git.usages" />
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="98">
-                <caret line="36" selection-start-line="36" selection-end-line="36" />
+              <first_editor relative-caret-position="245">
+                <caret line="112" column="24" lean-forward="true" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/taskinfo.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="409">
+              <caret line="249" column="29" lean-forward="true" selection-start-line="249" selection-start-column="29" selection-end-line="249" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controller/Task.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="263">
+              <caret line="52" column="32" lean-forward="true" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/Service.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-235">
+              <caret line="51" column="52" lean-forward="true" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -184,11 +162,12 @@
         <option value="$PROJECT_DIR$/templates/bin/node.py" />
         <option value="$PROJECT_DIR$/urls.py" />
         <option value="$PROJECT_DIR$/controller/Plugin.py" />
-        <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/templates/index.tpl" />
-        <option value="$PROJECT_DIR$/controller/Task.py" />
         <option value="$PROJECT_DIR$/load_plugin.py" />
+        <option value="$PROJECT_DIR$/controller/Service.py" />
+        <option value="$PROJECT_DIR$/readme.md" />
+        <option value="$PROJECT_DIR$/controller/Task.py" />
       </list>
     </option>
   </component>
@@ -198,9 +177,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="292" />
-    <option name="y" value="45" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="311" />
+    <option name="y" value="53" />
     <option name="width" value="1280" />
     <option name="height" value="925" />
   </component>
@@ -209,6 +188,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -224,13 +204,17 @@
             <path>
               <item name="MirrorScan" type="b2602c69:ProjectViewProjectNode" />
               <item name="MirrorScan" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MirrorScan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MirrorScan" type="462c0819:PsiDirectoryNode" />
               <item name="thirdparty" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -278,10 +262,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="259" y="51" width="1280" height="925" extended-state="0" />
+    <frame x="-4" y="0" width="1928" height="1039" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26101142" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17395945" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
@@ -295,7 +279,7 @@
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" x="376" y="418" width="1238" height="229" id="Terminal" order="11" sideWeight="0.4994664" visible="true" weight="0.27272728" />
+      <window_info active="true" anchor="bottom" x="376" y="418" width="1238" height="229" id="Terminal" order="11" sideWeight="0.4994664" visible="true" weight="0.23841059" />
       <window_info anchor="bottom" id="TODO" order="12" weight="0.32781458" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -338,13 +322,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/bootstrap-colorpicker.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/bootstrap-colorpicker.min.js" />
     <entry file="file://$PROJECT_DIR$/tools/ch_password.py" />
     <entry file="file://$PROJECT_DIR$/lib/warpper.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -370,13 +348,6 @@
     <entry file="file://$PROJECT_DIR$/CHANGELOG" />
     <entry file="file://$PROJECT_DIR$/plugins/www/crossdomain xml.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/Service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="859">
-          <caret line="112" column="38" lean-forward="true" selection-start-line="112" selection-start-column="38" selection-end-line="112" selection-end-column="38" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/utils.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -494,24 +465,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/load_plugin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="28" column="32" lean-forward="true" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/make_code.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="27" column="14" lean-forward="true" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/Task.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="125" column="70" lean-forward="true" selection-start-line="125" selection-start-column="70" selection-end-line="125" selection-end-column="70" />
         </state>
       </provider>
     </entry>
@@ -525,13 +482,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/load_plugin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="28" column="32" lean-forward="true" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/Service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-235">
+          <caret line="51" column="52" lean-forward="true" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="98">
-            <caret line="36" selection-start-line="36" selection-end-line="36" />
+          <first_editor relative-caret-position="245">
+            <caret line="112" column="24" lean-forward="true" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/taskinfo.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="249" column="29" lean-forward="true" selection-start-line="249" selection-start-column="29" selection-end-line="249" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/Task.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="52" column="32" lean-forward="true" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
         </state>
       </provider>
     </entry>

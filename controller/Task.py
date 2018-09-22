@@ -68,6 +68,27 @@ class TaskHandler(tornado.web.RequestHandler):
                 taskQuery.limit(skipPage)
                 taskInfo = taskQuery.find()
                 self.render('task.tpl', user=user, info=taskInfo, per=perPage, cur=1, err='错误的任务哈希')
+        elif act == 'Cancel':
+            taskQuery = leancloud.Query('mTask')
+            taskQuery.equal_to('uhash', uhash)
+            taskQuery.equal_to('tid', arg)
+            if taskQuery.find():
+                taskInfo = taskQuery.first()
+                taskInfo.set('status', 'cancel')
+                taskInfo.save()
+                perPage, skipPage = getpage(leancloud.Query('mTask').equal_to('uhash', uhash))
+                taskQuery = leancloud.Query('mTask')
+                taskQuery.equal_to('uhash', uhash)
+                taskQuery.limit(skipPage)
+                taskInfo = taskQuery.find()
+                self.render('task.tpl', user=user, info=taskInfo, per=perPage, cur=1, suc='成功停止任务')
+            else:
+                perPage, skipPage = getpage(leancloud.Query('mTask').equal_to('uhash', uhash))
+                taskQuery = leancloud.Query('mTask')
+                taskQuery.equal_to('uhash', uhash)
+                taskQuery.limit(skipPage)
+                taskInfo = taskQuery.find()
+                self.render('task.tpl', user=user, info=taskInfo, per=perPage, cur=1, err='错误的任务哈希')
         elif act == 'Page':
             if arg:
                 num = int(arg)
@@ -123,14 +144,14 @@ class TaskHandler(tornado.web.RequestHandler):
                 perPage, _ = getpage(leancloud.Query('mPlugin').equal_to('uhash', uhash))
                 myPluginList = getdata('mPlugin', perPage, uhash=uhash)
                 perPage, _ = getpage(leancloud.Query('mPlugin').equal_to('private', False))
-                pluginList = getdata('mPlugin', perPage, private=False)
+                pubPluginList = getdata('mPlugin', perPage, private=False)
                 hashList = set()
                 if 'my plugins' in plugins:
-                    plugins.remove('my plugins')
                     for item in myPluginList:
                         hashList.add(item.get('phash'))
-                for item in pluginList:
-                    hashList.add(item.get('phash'))
+                if 'www' in plugins:
+                    for item in pubPluginList:
+                        hashList.add(item.get('phash'))
                 Task = leancloud.Object.extend('mTask')
                 taskInfo = Task()
                 taskInfo.set('tid', gethash())

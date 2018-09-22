@@ -33,6 +33,7 @@ class ServiceHandler(tornado.web.RequestHandler):
                     nodeInfo.set('nodeid', nodeID)
                     nodeInfo.set('platform', platform)
                     nodeInfo.set('version', version)
+                    nodeInfo.set('ip', self.request.remote_ip)
                     nodeInfo.save()
                     resp = {
                     'uuid': uuid,

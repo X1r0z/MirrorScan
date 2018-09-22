@@ -1,7 +1,8 @@
 *.pyc
+*.zip
 .git/
+.idea/
 .avoscloud/
 .leancloud/
 thirdparty/
 plugins/
-tools/

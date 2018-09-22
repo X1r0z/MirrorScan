@@ -12,7 +12,9 @@ AUTHOR = 'X1r0z'
 
 USERNAME = 'exp10it'
 
-UHASH = '8d4feddaa3c2466449d7570898a8d7619bbfae9e'
+# UHASH = '8d4feddaa3c2466449d7570898a8d7619bbfae9e'
+
+UHASH = 'system'
 
 PRIVATE = False
 
@@ -36,7 +38,7 @@ for rt, dirs, files in os.walk(PLUGIN_DIR):
             Plugin = leancloud.Object.extend('mPlugin')
             info = Plugin()
             info.set('name', name)
-            info.set('info', info)
+            info.set('info', name)
             info.set('body', body)
             info.set('author', AUTHOR)
             info.set('service', service)

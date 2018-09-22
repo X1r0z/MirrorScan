@@ -12,11 +12,14 @@ if os.environ.get('LEANCLOUD_APP_ENV'):
 else:
     HOST = 'mirrorscan:8000'
 
+if os.environ.get('LEANCLOUD_APP_ENV'):
+    DEBUG = False
+else:
+    DEBUG = True
+
 INIT_FILE = 'init.py'
 
 NODE_FILE = 'node.py'
-
-DEBUG = True
 
 BASE_DIR = os.path.dirname(__file__)
 
@@ -49,4 +52,5 @@ def compiles(name, context=None):
     return 'templates/bin/' + name + '.tpl'
 
 INIT_FILE = compiles(INIT_FILE, {'host': HOST, 'scheme': SCHEME})
+
 NODE_FILE = compiles(NODE_FILE)
