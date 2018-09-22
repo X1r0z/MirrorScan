@@ -29,9 +29,13 @@ class RegisterHandler(tornado.web.RequestHandler):
                     userInfo.set('email', email)
                     userInfo.set('username', username)
                     userInfo.set('password', encodepass(password))
+                    userInfo.set('website', 'mirrorscan.cn')
+                    userInfo.set('jointime', gettime())
                     userInfo.set('uhash', gethash())
                     userInfo.set('group', '注册用户')
+                    userInfo.set('info', 'dalao')
                     userInfo.set('block', False)
+                    userInfo.set('qq', '')
                     userInfo.save()
                     self.render('login.tpl', suc='注册成功')
                 else:
