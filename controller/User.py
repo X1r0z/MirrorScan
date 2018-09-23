@@ -1,8 +1,9 @@
 # -*- coding:utf-8 -*-
 
-from lib.warpper import *
+from lib.core import *
 
 import tornado.web
+
 import leancloud
 
 class UserHandler(tornado.web.RequestHandler):
@@ -36,4 +37,4 @@ class UserHandler(tornado.web.RequestHandler):
                 userInfo.save()
                 self.render('user.tpl', user=user, info=userInfo, suc='成功更新个人信息')
             else:
-                 self.render('user.tpl', user=user, info=userInfo, err='错误的密码')
+                self.render('user.tpl', user=user, info=userInfo, err='错误的密码')

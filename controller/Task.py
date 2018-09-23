@@ -1,17 +1,36 @@
 # -*- coding:utf-8 -*-
 
-from lib.utils import *
 from lib.common import *
-from lib.warpper import *
+from lib.utils import *
+from lib.core import *
 
 import tornado.web
+import tornado.gen
+from tornado.concurrent import run_on_executor
+from concurrent.futures import ThreadPoolExecutor
+
 import leancloud
+import config
+import redis
+
 
 class TaskHandler(tornado.web.RequestHandler):
+    executor = ThreadPoolExecutor(10)
+
+    @run_on_executor
+    def setCache(self, handler, chash, data, ex):
+        handler.set(chash, data, ex=ex)
+
+    @run_on_executor
+    def deleteCache(self, handler, chash):
+        handler.delete(chash)
+
     @authentication
+    @tornado.gen.coroutine
     def get(self, act, arg):
         user = self.get_secure_cookie('user')
         uhash = self.get_secure_cookie('hash')
+        redisCache = redis.Redis(host=config.REDIS_HOST, port=config.REDIS_PORT, password=config.REDIS_PASS)
         if act == 'Info':
             taskQuery = leancloud.Query('mTask')
             taskQuery.equal_to('uhash', uhash)
@@ -19,8 +38,13 @@ class TaskHandler(tornado.web.RequestHandler):
             taskInfo = taskQuery.find()
             if taskInfo:
                 target = taskQuery.first().get('target')
-                perPage, _ = getpage(leancloud.Query('mReport').equal_to('uhash', uhash).equal_to('tid', arg))
-                reportInfo = getdata('mReport', perPage, uhash=uhash, tid=arg)
+                chash = sha1(uhash + arg)
+                if redisCache.exists(chash):
+                    reportInfo = unserialize(redisCache.get(chash))
+                else:
+                    perPage, _ = getpage(leancloud.Query('mReport').equal_to('uhash', uhash).equal_to('tid', arg))
+                    reportInfo = getdata('mReport', perPage, uhash=uhash, tid=arg)
+                    self.setCache(redisCache, chash, serialize(reportInfo), config.REDIS_EXPIRE)
                 if reportInfo:
                     report = reportformat(reportInfo)
                     self.render('taskinfo.tpl', user=user, target=target, report=report)
@@ -51,6 +75,8 @@ class TaskHandler(tornado.web.RequestHandler):
             taskQuery.equal_to('uhash', uhash)
             taskQuery.equal_to('tid', arg)
             if taskQuery.find():
+                chash = sha1(uhash + arg)
+                self.deleteCache(redisCache, chash)
                 perPage, _ = getpage(leancloud.Query('mReport').equal_to('uhash', uhash).equal_to('tid', arg))
                 reportInfo = getdata('mReport', perPage, uhash=uhash, tid=arg)
                 leancloud.Object.destroy_all(taskQuery.find())

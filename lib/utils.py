@@ -3,6 +3,7 @@
 import binascii
 import hashlib
 import random
+import pickle
 import base64
 import zlib
 import json
@@ -41,3 +42,14 @@ def gethost(url):
     if url.endswith('/'):
         url = url.strip('/')
     return url
+
+def serialize(leanObj):
+    if isinstance(leanObj, list):
+        List = [obj.__dict__['_attributes'] for obj in leanObj]
+        return pickle.dumps(List)
+    else:
+        obj = leanObj.__dict__['_attributes']
+        return pickle.dumps(obj)
+
+def unserialize(binary):
+    return pickle.loads(binary)

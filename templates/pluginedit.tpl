@@ -289,12 +289,12 @@
     if service == "www":
         return True, arg
 
-    def audit(arg):
-        payload = ''
-        target = arg + payload
-        code, head, res, err, _ = curl.curl2(target)
-        if 'flag' in res:
-            security_note(target){% end %}</textarea>
+def audit(arg):
+    payload = ''
+    target = arg + payload
+    code, head, res, err, _ = curl.curl2(target)
+    if 'flag' in res:
+        security_note(target){% end %}</textarea>
                                     </div>
                                 </div>
 

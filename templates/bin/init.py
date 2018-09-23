@@ -15,8 +15,8 @@ for k in sys._getframe(1).f_code.co_consts:
         continue
     m = re.search('[a-z0-9]{40}', k)
     if m:
-        _S = "{{ scheme }}"
-        _B = "{{ host }}"
+        _S = "SCHEME"
+        _B = "HOST"
         _U = m.group()
         _C = True
         count = 30

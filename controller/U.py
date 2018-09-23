@@ -1,8 +1,9 @@
 # -*- coding:utf-8 -*-
 
-from lib.warpper import *
+from lib.core import *
 
 import tornado.web
+
 import leancloud
 import config
 
@@ -14,12 +15,12 @@ class UHandler(tornado.web.RequestHandler):
         userInfo = userQuery.find()
         if userInfo:
             if act == 'node':
-                data = open(config.NODE_FILE, 'rb').read()
+                data = open('templates/bin/' + config.NODE_FILE, 'rb').read()
                 self.set_header('Content-Type', 'application/octet-stream')
                 self.set_header('Content-Disposition', 'attachment;filename=node.py')
                 self.write(data)
             else:
-                data = open(config.INIT_FILE, 'rb').read()
+                data = open('templates/bin/' + config.INIT_FILE, 'rb').read()
                 self.set_header('Content-Type', 'application/octet-stream')
                 self.set_header('Content-Disposition', 'attachment;filename=init.py')
                 self.write(data)

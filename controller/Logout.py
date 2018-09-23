@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 
-from lib.warpper import *
+from lib.core import *
 
 import tornado.web
 

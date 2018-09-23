@@ -1,19 +1,33 @@
 # -*- coding:utf-8 -*-
 
-from lib.utils import *
 from lib.common import *
+from lib.utils import *
 
 import tornado.web
+import tornado.gen
+from tornado.concurrent import run_on_executor
+from concurrent.futures import ThreadPoolExecutor
+
 import leancloud
+import config
+import redis
 
 nodeID = 0
 
 class ServiceHandler(tornado.web.RequestHandler):
+    executor = ThreadPoolExecutor(10)
+    
+    @run_on_executor
+    def deleteCache(self, handler, chash):
+        handler.delete(chash)
+
     def get(self):
         self.write('Access Denied')
     
+    @tornado.gen.coroutine
     def post(self):
         global nodeID
+        redisCache = redis.Redis(host=config.REDIS_HOST, port=config.REDIS_PORT, password=config.REDIS_PASS)
         if self.request.body:
             data = decodestr(self.request.body[33:])
             uuid = data['uuid']
@@ -124,6 +138,8 @@ class ServiceHandler(tornado.web.RequestHandler):
                     reportInfo.set('name', name)
                     reportInfo.set('body', body)
                     reportInfo.save()
+                    chash = sha1(uhash + tid)
+                    self.deleteCache(redisCache, chash)
                     resp = {
                     'uuid': uuid,
                     'error': None,

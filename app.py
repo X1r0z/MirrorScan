@@ -1,7 +1,6 @@
 # -*- coding:utf-8 -*-
 
 from config import settings
-import wsgi
 
 import tornado.web
 import tornado.wsgi
