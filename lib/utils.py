@@ -37,10 +37,10 @@ def encodepass(raw):
 
 def gethost(url):
     if url.startswith('http'):
-        url = url.strip('http://')
-        url = url.strip('https://')
+        url = url.replace('http://', '')
+        url = url.replace('https://', '')
     if url.endswith('/'):
-        url = url.strip('/')
+        url = url.replace('/', '')
     return url
 
 def serialize(leanObj):
