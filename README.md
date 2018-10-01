@@ -12,7 +12,7 @@
 
 代码兼容 bugscan 的插件编写规范
 
-目前仅内置 miniCurl 模块
+目前内置 minicurl hackhttp 模块
 
 示例
 
@@ -33,6 +33,12 @@ if __name__ == '__main__':
 ``` 
 
 ## Changelogs
+
+**v2.4**
+
+去除报告中多余的反斜杠
+
+增加 CMS 识别插件
 
 **v2.3**
 
