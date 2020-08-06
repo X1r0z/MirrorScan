@@ -1,6 +1,6 @@
 archive 仅作备份
 
-config 中相关信息无效
+config 中相关信息已作废
 
 # MirrorScan
 
@@ -8,9 +8,13 @@ config 中相关信息无效
 
 节点代码基于 bugscan
 
+项目基于 tornado leancloud redis
+
 ## Features
 
-插件化 节点扫描
+插件化
+
+节点扫描
 
 ## SDK
 
