@@ -1,10 +1,6 @@
-archive 仅作备份
-
-config 中相关信息已作废
-
 # MirrorScan
 
-云镜 (MirrorScan) 是一款模仿 bugscan 的插件化扫描器.
+云镜 (MirrorScan) 是一款模仿 bugscan 的插件化 Web 扫描器.
 
 节点代码基于 bugscan
 
@@ -15,6 +11,10 @@ config 中相关信息已作废
 插件化
 
 节点扫描
+
+## Usage
+
+使用前请自行注册 LeanCloud 并配置相关服务 (含 Redis), 在 config.py 中填写相关信息
 
 ## SDK
 
