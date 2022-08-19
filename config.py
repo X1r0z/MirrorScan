@@ -14,7 +14,7 @@ SCHEME = 'http'
 
 if os.environ.get('LEANCLOUD_APP_ID'):
 
-    HOST = 'mirrorscan.leanapp.cn'
+    HOST = 'HOST'
 
     DEBUG = False
 else:
@@ -27,21 +27,21 @@ INIT_FILE = 'init.pyc'
 
 NODE_FILE = 'node.pyc'
 
-APP_ID = '9RLabat5zEzNkYtwQW1Rn5sK-gzGzoHsz'
+APP_ID = 'APP_ID'
 
-APP_KEY = 'M38DE3wMfrPA4HHeRaUkyoIR'
+APP_KEY = 'APP_KEY'
 
-MASTER_KEY = 'EFNMBnGv5KazPMgzTNokpj6e'
+MASTER_KEY = 'MASTER_KEY'
 
-REDIS_HOST = 'redis-13572.c1.asia-northeast1-1.gce.cloud.redislabs.com'
+REDIS_HOST = 'REDIS_HOST'
 
-REDIS_PORT = 13572
+REDIS_PORT = 6379
 
-REDIS_PASS = 'mmqrfPVXIYYmhB7rlykmA6wHV09p54xY'
+REDIS_PASS = 'REDIS_PASS'
 
 REDIS_EXPIRE = 300
 
-SECRET = '5_pdecg&#s1g=ka_rrohm)v1-zyecoqxzmga9%abm7quvs6y^5'
+SECRET = 'SECRET'
 
 BASE_DIR = os.path.dirname(__file__)
 
